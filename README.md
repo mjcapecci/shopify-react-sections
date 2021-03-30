@@ -1,4 +1,4 @@
-# shopify-react-components
+# shopify-react-sections
 This is a collection of React components designed to be dropped into any Shopify Liquid theme.
 
 The idea is that we can import the React components we need without bundling React or ReactDOM in the final build. Instead, we will include React from the CDN.
