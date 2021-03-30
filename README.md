@@ -1,4 +1,4 @@
-# shopify-react-components
+# shopify-react-sections
 
 This is a collection of React components designed to be dropped into any Shopify Liquid theme.
 
