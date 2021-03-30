@@ -1,0 +1,31 @@
+<div
+  id="full-page-banner-container"
+  data-images={{ section.settings.imagelist | json }}
+  data-title={{ section.settings.title | json }}
+></div>
+
+<div
+  id="full-page-banner-container-2"
+  data-images={{ section.settings.imagelist | json }}
+  data-title={{ section.settings.title | json }}
+></div>
+
+{% schema %}
+{
+  "name": "Hero Text",
+  "settings": [
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title",
+      "default": "Hero"
+    },
+    {
+      "id": "imagelist",
+      "type": "text",
+      "label": "Images",
+      "info": "Enter up to three image URLs, separated by comma."
+    }
+  ]
+}
+{% endschema %}

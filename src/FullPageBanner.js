@@ -1,4 +1,5 @@
 let domContainer = document.querySelector('#full-page-banner-container');
+let domContainer2 = document.querySelector('#full-page-banner-container-2');
 
 const FullPageBanner = () => {
   const memoizedImages = React.useMemo(() => {
@@ -51,3 +52,4 @@ const FullPageBanner = () => {
 };
 
 ReactDOM.render(<FullPageBanner />, domContainer);
+ReactDOM.render(<FullPageBanner />, domContainer2);
