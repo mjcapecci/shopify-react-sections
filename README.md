@@ -36,7 +36,7 @@ It is assumed that you have a Shopify theme in a local development environment. 
 
 ```
 
-6. Finally, each component has a corresponding Section file. Copy the corresponding Section files of any components you imported and transpiled into your theme's `sections` folder. You can now import **one instance** of each section into your theme. (See **Challenges** for why that number is only one)
+6. Finally, each component has a corresponding Section file. Copy the corresponding Section files of any components you imported and transpiled into your theme's `sections` folder. You can now create instances of these sections in the "Customization" menu in the Shopify admin panel.
 
 ## Styles
 
@@ -50,7 +50,7 @@ These are the difficult challenges involved with implementing React in this fash
 
 ### Importing the Same Component More than Once
 
-Shopify offers two types of sections: static and dynamic. This library is intended to serve as a collection of **dymnamic** sections, which means you can use a section only more than once -- but you cannot explicitly define it in your code.
+Shopify offers two types of sections: static and dynamic. This library is intended to serve as a collection of **dymnamic** sections, which means you can use a section more than once -- but you should not explicitly define it in your code.
 
 Due to the nature of how React injects JavaScript code into a single root element, the same tag id cannot be used in more than one instance. As a result, the way to reuse the same React code for now is to create another render our sections in a `forEach` loop that iterates over the NodeList of all results gathered from a `querySelectorAll`. Through this loop, we can pass our data attributes as props to our components. In this way, each section will behave as an independed Virtual DOM.
 
