@@ -35,7 +35,7 @@ It is assumed that you have a Shopify theme in a local development environment. 
 
 ```
 
-6. Finally, each component has a corresponding Section file. Copy the corresponding Section files of any components you imported and transpiled into your theme's ```sections``` folder. You can now import unique instances of these sections into your theme.
+6. Finally, each component has a corresponding Section file. Copy the corresponding Section files of any components you imported and transpiled into your theme's ```sections``` folder. You can now import **one instance** of each section into your theme. (See **Challenges** for why that number is only one)
 
 ## Styles
 
