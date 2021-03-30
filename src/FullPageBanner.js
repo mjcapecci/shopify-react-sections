@@ -1,12 +1,10 @@
-let domContainer = document.querySelector('#full-page-banner-container');
-
-const FullPageBanner = () => {
+const FullPageBanner = ({ element }) => {
   const memoizedImages = React.useMemo(() => {
-    return domContainer.dataset.images.split(',');
+    return element.dataset.images.split(',');
   }, []);
 
   const memoizedText = React.useMemo(() => {
-    return domContainer.dataset.title;
+    return element.dataset.title;
   }, []);
 
   const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
@@ -15,8 +13,7 @@ const FullPageBanner = () => {
   );
 
   const handleImageUpdate = () => {
-    console.log(memoizedImages);
-    if (currentImageIndex <= 1) {
+    if (currentImageIndex < memoizedImages.length - 1) {
       setCurrentImageIndex(currentImageIndex + 1);
     } else {
       setCurrentImageIndex(0);
@@ -25,6 +22,12 @@ const FullPageBanner = () => {
 
   React.useEffect(() => {
     setCurrentImage(`url(${memoizedImages[currentImageIndex]})`);
+  }, [currentImageIndex]);
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      handleImageUpdate();
+    }, 5000);
   }, [currentImageIndex]);
 
   const styles = {
@@ -37,7 +40,7 @@ const FullPageBanner = () => {
     alignItems: 'center',
     color: 'white',
     fontSize: '24px',
-    transition: 'background .2s linear',
+    transition: 'background 1s linear',
   };
 
   return (
@@ -45,9 +48,12 @@ const FullPageBanner = () => {
       <div className='full-page-banner' style={styles}>
         <h1>{memoizedText}</h1>
       </div>
-      <button onClick={() => handleImageUpdate()}>UPDATE IMAGE</button>
     </React.Fragment>
   );
 };
 
-ReactDOM.render(<FullPageBanner />, domContainer);
+let domAll = document.querySelectorAll('#full-page-banner-container');
+
+[...domAll].forEach((node) =>
+  ReactDOM.render(<FullPageBanner element={node} />, node)
+);
